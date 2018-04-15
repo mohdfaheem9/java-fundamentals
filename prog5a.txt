@@ -1,0 +1,78 @@
+package sss;
+
+import java.util.Scanner;
+class prog5
+{
+int a,b;
+Scanner s1=new Scanner(System.in);
+
+prog5()
+{
+	System.out.println("enter any 2 integers");
+	a=s1.nextInt();
+	b=s1.nextInt();
+
+}
+void display()
+{
+	System.out.println("Addition="+(a+b));
+	System.out.println("Subtraction="+(a-b));
+	System.out.println("Multiplication="+(a*b));
+	System.out.println("Division="+(a/b));
+	
+}
+prog5(float a1,float b1)
+{
+	System.out.println("Addition="+(a1+b1));
+	System.out.println("Subtraction="+(a1-b1));
+	System.out.println("Multiplication="+(a1*b1));
+	System.out.println("Division="+(a1/b1));
+
+}
+void display(int x)
+{
+	System.out.println("Square of " +x+ "is" +(x*x));
+	
+}
+}
+class Main {
+
+	public static void main(String[] args) {
+
+Scanner s1=new Scanner(System.in);
+System.out.println("Arithamtic operation on interger");
+prog5 a=new prog5();
+a.display();
+System.out.println("\n arithmatic operation on float ");
+System.out.println("enter any 2 float numbers");
+float a1=s1.nextFloat();
+float a2=s1.nextFloat();
+prog5 arth1=new prog5(a1,a2);
+System.out.println("\n enter number to find square");
+int x=s1.nextInt();
+a.display(x);
+	}
+}
+
+OUTPUT:
+Arithamtic operation on interger
+enter any 2 integers
+119
+36
+Addition=155
+Subtraction=83
+Multiplication=4284
+Division=3
+
+ arithmatic operation on float 
+enter any 2 float numbers
+232.76
+176.45
+Addition=409.21
+Subtraction=56.309998
+Multiplication=41070.5
+Division=1.3191272
+
+enter number to find square
+25
+Square of 25 is 625

@@ -1,0 +1,41 @@
+package sss;
+
+public class prog10a 
+{
+	enum days
+	{
+	sunday,
+	monday,
+	tuesday,
+	wednesday,
+	thursday,
+	friday,
+	saturday
+	}
+
+public static void main(String[] args) 
+{
+	for(days d:days.values())
+	{
+	weekend(d);
+	}
+	}
+private static void weekend(days d)
+	{
+	if(d.equals(days.sunday))
+	System.out.println("value=" +d+"is a holiday");
+	else
+	System.out.println("value="+d+" is a working days");
+	}
+}
+
+
+OUTPUT:
+
+value=sundayis a holiday
+value=monday is a working days
+value=tuesday is a working days
+value=wednesday is a working days
+value=thursday is a working days
+value=friday is a working days
+value=saturday is a working days

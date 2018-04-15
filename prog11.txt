@@ -1,0 +1,243 @@
+package sss;
+
+import java.util.*; 
+interface Stack
+
+{
+void push(int element); 
+void pop();
+void display();
+}
+
+class Fixedstack implements Stack
+{
+private int top; private final int size=5;
+
+private int stackarray[]=new int[size];
+Fixedstack() { top=-1; }
+
+public void push(int element)
+{
+if(top==size-1)
+System.out.println("STACK IS FULL");
+else
+stackarray[++top]=element;
+}
+
+public void pop()
+{
+if(top==-1)
+System.out.println("STACK IS EMPTY");
+else
+System.out.println("DELETED ELEMENT IS "+(stackarray[top--]));
+}
+
+public void display()
+{
+if(top==-1)
+System.out.println("STACK IS EMPTY");
+else
+{
+System.out.println("STACK ELEMENTS ARE-"); 
+for(int i=top;i>=0;i--)
+System.out.println(stackarray[i]);
+}
+}
+}
+
+class Dynamicstack implements Stack
+{
+ 
+private int top,size=5,tempsize; 
+private int stackarray[]=new int[size]; 
+Scanner s1=new Scanner(System.in);
+Dynamicstack() 
+{ top=-1; }
+
+public void push(int element)
+{
+if(top==size-1)
+{
+System.out.println("STACK IS FULL");
+System.out.println("How much Size of Stack do u want to increase"); 
+int size1=s1.nextInt();
+tempsize=size+size1;
+int temparray[]=new int[tempsize];
+for(int i=0;i<size;i++)
+temparray[i]=stackarray[i];
+stackarray=temparray;
+size=tempsize;
+}
+else
+stackarray[++top]=element;
+}
+
+public void pop()
+{
+if(top==-1)
+System.out.println("STACK IS EMPTY");
+else
+System.out.println("DELETED ELEMENT IS "+(stackarray[top--]));
+}
+public void display()
+{
+if(top==-1)
+System.out.println("STACK IS EMPTY");
+else
+{
+System.out.println("STACK ELEMENTS ARE-");
+for(int i=top;i>=0;i--)
+System.out.println(stackarray[i]);
+}
+}
+}
+class prog11
+{
+public static void main(String args[])
+{
+int choice1,choice2,element; 
+Scanner s1=new Scanner(System.in); Stack s;
+System.out.println("Enter 1 for Fixed Stack and 2 for Dyanmic Stack");
+choice1=s1.nextInt();
+
+if(choice1==1)
+s=new Fixedstack();
+else
+ 
+s=new Dynamicstack();
+for(;;)
+{
+if(choice1!=1 && choice1!=2) break;
+else
+{ 
+System.out.println("1.PUSH\n2.POP\n3.DISPLAY\n4.EXIT\nEnter the Choice");
+choice2=s1.nextInt();
+switch(choice2)
+{
+	case 1: System.out.println("Enter Element to be Inserted"); 
+		element=s1.nextInt();
+		s.push(element);
+		break ; 
+	case 2: s.pop();
+		break;
+	case 3: s.display();
+		break;
+	case 4: return;
+	default:System.out.println("INVALID INPUT");
+		return;
+}
+}
+}
+}
+}
+
+OUTPUT  1:
+
+Enter 1 for Fixed Stack and 2 for Dyanmic Stack
+1
+1.PUSH
+2.POP
+3.DISPLAY
+4.EXIT
+Enter the Choice
+1
+Enter Element to be Inserted
+11
+1.PUSH
+2.POP
+3.DISPLAY
+4.EXIT
+Enter the Choice
+1
+Enter Element to be Inserted
+22
+1.PUSH
+2.POP
+3.DISPLAY
+4.EXIT
+Enter the Choice
+3
+STACK ELEMENTS ARE-
+22
+11
+1.PUSH
+2.POP
+3.DISPLAY
+4.EXIT
+Enter the Choice
+2
+DELETED ELEMENT IS 22
+1.PUSH
+2.POP
+3.DISPLAY
+4.EXIT
+Enter the Choice
+3
+STACK ELEMENTS ARE-
+11
+1.PUSH
+2.POP
+3.DISPLAY
+4.EXIT
+Enter the Choice
+4
+
+OUTPUT 2:
+Enter 1 for Fixed Stack and 2 for Dyanmic Stack
+2
+1.PUSH
+2.POP
+3.DISPLAY
+4.EXIT
+Enter the Choice
+1
+Enter Element to be Inserted
+99
+1.PUSH
+2.POP
+3.DISPLAY
+4.EXIT
+Enter the Choice
+1
+Enter Element to be Inserted
+88
+1.PUSH
+2.POP
+3.DISPLAY
+4.EXIT
+Enter the Choice
+1
+Enter Element to be Inserted
+77
+1.PUSH
+2.POP
+3.DISPLAY
+4.EXIT
+Enter the Choice
+3
+STACK ELEMENTS ARE-
+77
+88
+99
+1.PUSH
+2.POP
+3.DISPLAY
+4.EXIT
+Enter the Choice
+2
+DELETED ELEMENT IS 77
+1.PUSH
+2.POP
+3.DISPLAY
+4.EXIT
+Enter the Choice
+3
+STACK ELEMENTS ARE-
+88
+99
+1.PUSH
+2.POP
+3.DISPLAY
+4.EXIT
+Enter the Choice
+4

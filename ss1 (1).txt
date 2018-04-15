@@ -1,0 +1,29 @@
+package mypack;
+
+import aaa.s1;
+//import aaa.r1;
+import aaa.c1;
+
+public class ss1 {
+
+	public static void main(String[] args) {
+		s1 s=new s1();
+	   //r1 r=new r1();
+		c1 c=new c1();
+		s.inputvalues(10);
+		s.displayArea();
+	//	r.inputvalues(9, 10);;
+	//	r.displayArea();
+		c.inputvalues(12);
+		c.displayArea();
+		
+
+	}
+
+}
+
+output:
+
+Area of square:100
+
+ Area of circle:452.15999999999997

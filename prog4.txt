@@ -1,0 +1,33 @@
+package sss;
+
+import java.io.*;
+import java.lang.*;
+import java.util.Scanner;
+public class Inttostring {
+public static void main(String[] args) {
+	StringBuffer sarray=new StringBuffer();
+	String s;
+	int[] nums=new int[10];
+	int i;
+	Scanner scanner=new Scanner(System.in);
+	System.out.println("Enter 5 numbers for array");
+	for(i=0;i<5;i++)
+	{
+	nums[i]=scanner.nextInt();
+	sarray.append(Integer.toString(nums[i]));
+	}
+	System.out.println("Integer array converted to String:");
+	System.out.println(sarray);
+	}
+}
+
+OUTPUT:
+
+Enter 5 numbers for array
+1
+45
+22
+4
+6
+Integer array converted to String:
+1452246

@@ -1,0 +1,178 @@
+package pg;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+public class Bank {
+int i;
+Account a;
+public static void main(String[] args) 
+{
+	Bank t=new Bank();
+	t.transe();
+}
+public void transe()
+{
+a=new Account();
+System.out.println("enter your options");
+while(true)
+{
+System.out.println("press1 to withdraw amount");
+System.out.println("press2 to deposit amount ");
+System.out.println("press3 to view balance amount");
+System.out.println("press4 to quit\n");
+BufferedReader br=new BufferedReader(new InputStreamReader (System.in));
+	try
+	{
+		i=Integer.parseInt(br.readLine());
+	}
+	catch(Exception e)
+	{
+	System.out.println("invalid input");
+	transe();
+	}
+	switch(i)
+	{
+	case 1: a.withdraw();
+	break;
+	case 2:a.deposit();
+	break;
+	case 3:a.Balance();
+	break;
+	case 4:System.exit(1);
+	break;
+	default:System.out.println("invalid options\n");
+	}
+}
+}
+
+class Account extends  LessBalanceException
+{
+
+float amt;
+	public Account()
+	{
+		amt=500;
+	}
+	public void withdraw()
+	{
+	int amts=0;
+	System.out.println("enter the amount to withdraw\n");
+	BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+	try
+	{
+		amts=Integer.parseInt(br.readLine());
+	}
+	catch(Exception e)
+	{
+		e.printStackTrace();
+	}
+	if((amt<500))
+	{
+	try
+	{
+	throw new LessBalanceException();
+	}
+catch(LessBalanceException e)
+	{
+	System.out.println("\n"+e);
+	System.out.println("current Account Balance is= " +amt);
+	}
+	}
+	else
+	{
+	amt=amt-amts;
+	}
+	System.out.println("current Account Balance is=" +amt);
+	}
+	public void deposit()
+	{
+	int amts=0;
+	System.out.println("enter the amount to deposit\n");
+	BufferedReader br=new BufferedReader(new InputStreamReader
+(System.in));
+	try
+	{
+	amts=Integer.parseInt(br.readLine());
+	}
+	catch(Exception e)
+	{
+	e.printStackTrace();
+	}
+	amt=amt+amts;
+	System.out.println("current Account Balance is=" +amt);
+}
+public void Balance()
+{
+System.out.println("\n current Account Balance is=" +amt);
+}
+}
+class LessBalanceException extends Exception
+{
+	public LessBalanceException()
+	{
+	System.out.println("Less balance");
+	}
+public String toString()
+	{
+	return "Balance is less than 500";
+	}
+	}
+	
+OUTPUT:
+
+Enter your options
+press 1 to withdraw amount
+press 2 to deposit amount 
+press 3 to view balance amount
+press 4 to quit
+
+1
+
+Enter the amount:
+600
+Less Balance : 600
+You cannot with draw the amount , less balance 600Now
+press 1 to withdraw amount
+press 2 to deposit amount 
+press 3 to view balance amount
+press 4 to quit
+
+2
+Enter the amount:
+4300
+
+Balance: 4800
+press 1 to withdraw amount
+press 2 to deposit amount 
+press 3 to view balance amount
+press 4 to quit
+
+1
+
+Enter the amount:
+600
+
+Balance left: 4200
+press 1 to withdraw amount
+press 2 to deposit amount 
+press 3 to view balance amount
+press 4 to quit
+
+4
+				
+			
+			
+				
+			
+				
+			
+
+		
+		
+	
+	
+	
+		
+
+	
+
+
